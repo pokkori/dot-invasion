@@ -79,7 +79,7 @@ export default function BattleResultScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {/* Result Title */}
       <Text style={[styles.resultTitle, isWin ? styles.victory : isDraw ? styles.draw : styles.defeat]}>
-        {isWin ? '⚔️ VICTORY! ⚔️' : isDraw ? '△ DRAW △' : 'DEFEAT...'}
+        {isWin ? '★ VICTORY! ★' : isDraw ? '△ DRAW △' : 'DEFEAT...'}
       </Text>
 
       <Text style={styles.opponentName}>vs {opponent.name}</Text>
