@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "ドット侵略 - Pixel Siege",
+    "slug": "pixel-siege",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "pixel-siege",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0A1E"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pokkori.pixelsiege"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0A1E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.pokkori.pixelsiege"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
