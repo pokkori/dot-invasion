@@ -5,6 +5,7 @@ import { usePlayerStore } from '../../src/stores/playerStore';
 import { useBattleStore } from '../../src/stores/battleStore';
 import { MatchResult } from '../../src/types/battle';
 import { generateId } from '../../src/utils/mathUtils';
+import { IconSvg } from '../../src/components/IconSvg';
 
 export default function BattleResultScreen() {
   const router = useRouter();
@@ -102,19 +103,22 @@ export default function BattleResultScreen() {
       {/* Rewards */}
       <View style={styles.rewardsCard}>
         <Text style={styles.rewardsTitle}>報酬</Text>
-        <Text style={styles.rewardItem}>🪙 +{isWin ? opponent.rewardCoins : 30}コイン</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          <IconSvg name="coin" size={16} />
+          <Text style={styles.rewardItem}>+{isWin ? opponent.rewardCoins : 30}コイン</Text>
+        </View>
         {isWin && opponent.rewardColorId && (
-          <Text style={styles.rewardItem}>🎨 新色アンロック！</Text>
+          <Text style={styles.rewardItem}>新色アンロック！</Text>
         )}
       </View>
 
       {/* Actions */}
       <TouchableOpacity style={styles.retryButton} onPress={handleRetry}>
-        <Text style={styles.buttonText}>🔄 もう一度</Text>
+        <Text style={styles.buttonText}>もう一度</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.homeButton} onPress={handleGoHome}>
-        <Text style={styles.buttonText}>🏠 ホームに戻る</Text>
+        <Text style={styles.buttonText}>ホームに戻る</Text>
       </TouchableOpacity>
     </ScrollView>
   );

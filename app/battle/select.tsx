@@ -6,6 +6,7 @@ import { useBattleStore } from '../../src/stores/battleStore';
 import { AI_OPPONENTS } from '../../src/constants/ai-opponents';
 import { STAGE_ZONES } from '../../src/constants/stages';
 import { pixelToHex } from '../../src/utils/colorUtils';
+import { IconSvg } from '../../src/components/IconSvg';
 
 export default function BattleSelectScreen() {
   const router = useRouter();
@@ -69,7 +70,11 @@ export default function BattleSelectScreen() {
                       {isUnlocked ? opponent.description : `ステージ${stageNum - 1}クリアで解放`}
                     </Text>
                     {isUnlocked && (
-                      <Text style={styles.rewardText}>報酬: 🪙{opponent.rewardCoins}</Text>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                        <Text style={styles.rewardText}>報酬: </Text>
+                        <IconSvg name="coin" size={14} />
+                        <Text style={styles.rewardText}>{opponent.rewardCoins}</Text>
+                      </View>
                     )}
                   </View>
                 </View>

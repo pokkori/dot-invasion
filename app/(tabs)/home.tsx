@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { Link } from 'expo-router';
 import { usePlayerStore } from '../../src/stores/playerStore';
 import { pixelToHex } from '../../src/utils/colorUtils';
+import { IconSvg } from '../../src/components/IconSvg';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -44,9 +45,12 @@ export default function HomeScreen() {
           <Text style={styles.playerName}>
             {data.profile.name || 'プレイヤー'} {data.progress.totalWins > 0 ? `勝率 ${winRate}%` : ''}
           </Text>
-          <Text style={styles.currency}>
-            🪙 {data.inventory.coins.toLocaleString()}  💎 {data.inventory.gems}
-          </Text>
+          <View style={styles.currencyRow}>
+            <IconSvg name="coin" size={16} />
+            <Text style={styles.currency}>{data.inventory.coins.toLocaleString()}</Text>
+            <IconSvg name="gem" size={16} />
+            <Text style={styles.currency}>{data.inventory.gems}</Text>
+          </View>
         </View>
       </View>
 
@@ -196,10 +200,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  currencyRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 4,
+  },
   currency: {
     color: '#CCCCEE',
     fontSize: 14,
-    marginTop: 4,
   },
   mainButton: {
     backgroundColor: '#CC2200',

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Alert } from 'react-native';
 import { usePlayerStore } from '../../src/stores/playerStore';
 import { BALANCE } from '../../src/constants/balance';
+import { IconSvg } from '../../src/components/IconSvg';
 
 export default function ShopScreen() {
   const data = usePlayerStore(s => s.data);
@@ -28,14 +29,19 @@ export default function ShopScreen() {
     }
     addGems(5);
     await save();
-    Alert.alert('獲得！', '💎5ジェムを獲得しました');
+    Alert.alert('獲得！', 'ジェムを5個獲得しました');
   };
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.headerRow}>
-        <Text style={styles.header}>🛒 ショップ</Text>
-        <Text style={styles.currency}>🪙{data.inventory.coins.toLocaleString()}  💎{data.inventory.gems}</Text>
+        <Text style={styles.header}>ショップ</Text>
+        <View style={styles.currencyRow}>
+          <IconSvg name="coin" size={16} />
+          <Text style={styles.currency}>{data.inventory.coins.toLocaleString()}</Text>
+          <IconSvg name="gem" size={16} />
+          <Text style={styles.currency}>{data.inventory.gems}</Text>
+        </View>
       </View>
 
       {/* Gem Packs */}
@@ -123,6 +129,7 @@ const styles = StyleSheet.create({
   content: { paddingTop: 56, paddingHorizontal: 16, paddingBottom: 40 },
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
   header: { fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' },
+  currencyRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   currency: { color: '#FFD700', fontSize: 14, fontWeight: 'bold' },
   sectionTitle: { color: '#FFD700', fontSize: 14, fontWeight: 'bold', marginTop: 20, marginBottom: 10 },
   gemRow: { flexDirection: 'row', gap: 10 },
