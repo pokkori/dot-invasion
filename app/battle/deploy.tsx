@@ -101,7 +101,7 @@ export default function BattleDeployScreen() {
       <HealthBar
         currentHp={state.enemyCastle.currentHp}
         maxHp={state.enemyCastle.maxHp}
-        label="❤️"
+        label="HP"
       />
       <Text style={styles.timer}>{minutes}:{seconds.toString().padStart(2, '0')}</Text>
 
@@ -118,7 +118,7 @@ export default function BattleDeployScreen() {
       <HealthBar
         currentHp={state.playerCastle.currentHp}
         maxHp={state.playerCastle.maxHp}
-        label="❤️"
+        label="HP"
       />
 
       {/* Mana */}
